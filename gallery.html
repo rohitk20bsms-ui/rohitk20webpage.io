@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Rohit Kumar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Satisfy&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-logo"><strong>R. Kumar</strong></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cv.html">Curriculum vitae</a></li>
+            <li><a href="illustrations.html">Illustrations</a></li>
+            <li><a href="confocal.html">Confocal Images</a></li>
+            <li><a href="hall-of-shame.html">Hall of shame</a></li>
+            <li><a href="gallery.html" class="active-link">Gallery</a></li>
+            <li><a href="git-projects.html">Git-Projects</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-banner">
+        <div class="hero-text">
+            <h1 class="gallery-title-script">Gallery</h1>
+            <div class="red-line"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="gallery-intro">
+            <h2 class="script-font">Memories</h2>
+            <p class="memories-subtitle"></p>
+        </div>
+
+        <div id="dynamic-gallery" class="masonry-gallery"></div>
+    </main>
+
+    <footer class="cv-footer">
+        <p>© 2026 Rohit Kumar </p>
+    </footer>
+
+    <script>
+        const galleryContainer = document.getElementById('dynamic-gallery');
+        const folderPath = 'gallery/';
+        const maxImages = 100; // The script will check up to 100 files
+
+        /**
+         * CAPTION LOOKUP TABLE
+         * Add captions here by matching the image number (gallery1.jpg = 1).
+         * If a number is NOT here, it will simply show the image without text.
+         */
+        const galleryCaptions = {
+            1: "Recycle ♻️",
+            2: "Lush Campus Greenery",
+            4: "The good boi 🐸",
+            5: "The Comix Club",
+            6: "The OG Comix Club minus Akshat",
+            7: "Sunset on the day of my thesis defense",
+            8: "A very rare good spread of polytene chromosomes",
+            19: "Bloom in IISER Bhopal with Lumen (Library) in backdrop.",
+            13: "Farewell 2025",
+            15: "Ashley H.Suraj and Me",
+            16: "BOF Quiz 2023",
+            17: "Vinju, Me , Uttu, Manjan",
+            20: "Battle of Fandom Quiz",
+            18: "Cornflower",
+            21: "Department of BiologicalSciences 20 Btach",
+        };
+
+        // Loop to check for images
+        for (let i = 1; i <= maxImages; i++) {
+            const img = new Image();
+            const fileName = `gallery${i}.jpg`;
+            img.src = folderPath + fileName;
+
+            // If the image exists in the folder
+            img.onload = function() {
+                const item = document.createElement('div');
+                item.className = 'masonry-item';
+
+                // Create the Image Element
+                const imgElement = document.createElement('img');
+                imgElement.src = img.src;
+                imgElement.alt = `Memory ${i}`;
+                item.appendChild(imgElement);
+
+                // Check the lookup table for a caption
+                if (galleryCaptions[i]) {
+                    const capElement = document.createElement('p');
+                    capElement.className = 'caption gallery-label';
+                    capElement.innerText = galleryCaptions[i];
+                    item.appendChild(capElement);
+                }
+
+                // Append the completed card to the gallery
+                galleryContainer.appendChild(item);
+            };
+
+            // If the image does not exist, the loop silently continues
+            img.onerror = function() {
+                // Image not found; do nothing.
+            };
+        }
+    </script>
+
+</body>
+</html>

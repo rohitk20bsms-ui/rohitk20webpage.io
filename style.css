@@ -1,0 +1,136 @@
+/* Hero Banner with the Green Leaves */
+.hero-banner {
+    height: 300px;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                url('leaves-background.jpg'); /* Replace with your image link */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-family: 'Times New Roman', serif; /* Or similar serif font */
+    margin: 0;
+}
+
+.red-line {
+    width: 60px;
+    height: 4px;
+    background-color: #d9534f;
+    margin: 10px auto;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background: #fff;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+/* About Section Layout */
+.about-section {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    padding: 50px 5%;
+}
+
+.green-title {
+    color: #7ba05b; /* That olive green from your screenshot */
+    font-family: 'Comic Sans MS', cursive; /* To match your screenshot font */
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.dot.active {
+    background-color: #d9534f;
+}
+.carousel-container {
+    position: relative;
+    max-width: 400px; /* Adjust to fit your layout */
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slide {
+    display: none; /* Hide all images by default */
+    width: 100%;
+    height: auto;
+    animation: fade 0.5s; /* Optional: adds a fade effect */
+}
+
+/* Fade animation */
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+.carousel-dots {
+    text-align: center;
+    padding: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #d9534f; /* The red color from your line */
+}
+.hero-banner {
+    height: 300px; /* Adjust height to match your Google Site */
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                      url('photo4.jpg'); /* This is your green header photo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Change to 'fixed' for a cool parallax effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: clamp(2rem, 8vw, 4rem); /* Makes text smaller on phones automatically */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Makes "Rohit Kumar" pop against the green */
+}
