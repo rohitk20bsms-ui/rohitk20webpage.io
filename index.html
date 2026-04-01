@@ -5,11 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Rohit Kumar</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="nav-logo"><strong>R. Kumar</strong></div>
+        <div class="nav-logo">
+            <a href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="logo-svg" role="img" aria-label="Red Panda Logo">
+                    <defs>
+                        <mask id="eyes">
+                            <circle cx="50" cy="50" r="100" fill="white"/>
+                            <ellipse cx="40" cy="45" rx="5" ry="6" fill="black"/> <ellipse cx="60" cy="45" rx="5" ry="6" fill="black"/> </mask>
+                    </defs>
+                    
+                    <path d="M25,20 C10,25 10,40 20,50 L30,55 M75,20 C90,25 90,40 80,50 L70,55" fill="#e07a5f" stroke="none"/>
+                    
+                    <circle cx="50" cy="50" r="35" fill="#e07a5f" mask="url(#eyes)" class="face-path"/>
+                    
+                    <path d="M40,55 C42,65 58,65 60,55 C65,45 75,35 65,30 C60,25 40,25 35,30 C25,35 35,45 40,55 Z" fill="#b14a2c" class="marking-path"/>
+                    
+                    <ellipse cx="50" cy="65" rx="15" ry="8" fill="#f4f1de"/>
+                    
+                    <ellipse cx="50" cy="63" rx="4" ry="3" fill="#3d405c"/>
+                </svg>
+            </a>
+        </div>
+
         <ul class="nav-links">
             <li><a href="index.html" class="active-link">Home</a></li>
             <li><a href="cv.html">Curriculum vitae</a></li>
