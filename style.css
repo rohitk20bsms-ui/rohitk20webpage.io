@@ -237,3 +237,36 @@ body {
 .meme-caption { font-size: 0.8rem; color: #888; margin-top: 10px; font-style: italic; }
 .shame-intro { text-align: center; margin-bottom: 30px; }
 .lesson-learnt-box { text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #eee; }
+
+/* --- IN-LINE SVG LOGO STYLING --- */
+.logo-svg {
+    height: 48px;       /* Set the explicit height of the logo */
+    width: auto;        /* Maintain the square aspect ratio from the viewBox */
+    display: block;
+    margin-right: 15px; /* Spacing between logo and links */
+    transition: transform 0.3s ease;
+}
+
+/* --- THE BIOLOGIST HOVER MAGIC --- */
+/* When you hover over the logo link... */
+.nav-logo a:hover .logo-svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ...The markings turn into your brand red (#d9534f) */
+.nav-logo a:hover .logo-svg .marking-path {
+    fill: #d9534f;
+    transition: fill 0.3s ease;
+}
+
+/* ...The entire face path becomes slightly warmer/more defined */
+.nav-logo a:hover .logo-svg .face-path {
+    fill: #e8a87c;
+    transition: fill 0.3s ease;
+}
+
+/* --- Ensure vertical centering --- */
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
