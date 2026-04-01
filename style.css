@@ -2,7 +2,6 @@
    1. GLOBAL SETTINGS & SHARED COMPONENTS
    ========================================== */
 body {
-    /* Updated path for GitHub Subdirectory compatibility */
     background-image: url('./background.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
@@ -30,7 +29,7 @@ body {
 }
 
 /* ==========================================
-   2. NAVIGATION BAR (Sticky)
+   2. NAVIGATION BAR & SVG LOGO
    ========================================== */
 .navbar {
     display: flex;
@@ -44,9 +43,40 @@ body {
     z-index: 1000;
 }
 
-.nav-logo { font-weight: bold; font-size: 1.2rem; color: #2c3e50; }
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
 
-.nav-links { display: flex; list-style: none; gap: 20px; margin: 0; }
+.logo-svg {
+    height: 48px;
+    width: auto;
+    display: block;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effects for the Red Panda mascot */
+.nav-logo a:hover .logo-svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.nav-logo a:hover .logo-svg .marking-path {
+    fill: #d9534f; /* Matches Brand Red on hover */
+    transition: fill 0.3s ease;
+}
+
+.nav-logo a:hover .logo-svg .face-path {
+    fill: #e8a87c;
+    transition: fill 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+}
 
 .nav-links a {
     text-decoration: none;
@@ -68,7 +98,6 @@ body {
 .hero-banner {
     width: 100%;
     height: 300px;
-    /* Updated path for GitHub Subdirectory compatibility */
     background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('./photo4.jpg');
     background-size: cover;
     background-position: center;
@@ -86,16 +115,14 @@ body {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
 }
 
-/* Specific Script Fonts for Hall of Shame & Gallery Titles */
-.gallery-title-script {
-    font-family: 'Dancing Script', cursive;
-    font-size: 4rem;
-    color: white;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+.red-line {
+    width: 70px;
+    height: 4px;
+    background-color: #d9534f;
+    margin-top: 10px;
 }
 
-.shame-title-main { font-family: 'Times New Roman', serif; font-style: italic; font-size: 3.5rem; }
-
+/* Custom Fonts */
 .script-font {
     font-family: 'Dancing Script', cursive;
     font-size: 2.8rem;
@@ -103,14 +130,25 @@ body {
     margin: 20px 0;
 }
 
-.red-line { width: 70px; height: 4px; background-color: #d9534f; margin-top: 10px; }
+.shame-title-main {
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    font-size: 3.5rem;
+}
 
 /* ==========================================
    4. HOME PAGE CAROUSEL
    ========================================== */
-.about-section { display: flex; align-items: center; gap: 40px; justify-content: space-between; }
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: space-between;
+}
 
-.text-content { flex: 1; }
+.text-content {
+    flex: 1;
+}
 
 .carousel-container {
     position: relative;
@@ -122,19 +160,40 @@ body {
     background: #f9f9f9;
 }
 
-.slide { display: none; width: 100%; height: 100%; object-fit: cover; animation: fadeEffect 1s; }
-
-@keyframes fadeEffect { from {opacity: 0.4} to {opacity: 1} }
-
-.carousel-dots { position: absolute; bottom: 15px; width: 100%; text-align: center; }
-
-.dot {
-    height: 10px; width: 10px; margin: 0 5px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 50%; display: inline-block; cursor: pointer;
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeEffect 1s;
 }
 
-.dot.active { background-color: #d9534f; transform: scale(1.2); }
+@keyframes fadeEffect {
+    from {opacity: 0.4} 
+    to {opacity: 1}
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #d9534f;
+    transform: scale(1.2);
+}
 
 /* ==========================================
    5. CV & ACADEMIC SECTION
@@ -147,13 +206,12 @@ body {
 .cv-date { float: right; color: #888; font-size: 0.85rem; font-weight: bold; }
 .orcid-link { color: #444; text-decoration: none; transition: 0.3s; }
 .orcid-link:hover { color: #a6ce39; text-decoration: underline; }
-.doi-link a { color: #d9534f; text-decoration: none; font-size: 0.9rem; font-weight: bold; }
 .abstract-content { background-color: rgba(123, 160, 91, 0.05); padding: 30px; border-left: 5px solid #7ba05b; border-radius: 0 8px 8px 0; }
 
 /* ==========================================
-   6. GALLERY & COLLAGE SYSTEMS
+   6. GALLERY & MASONRY SYSTEMS
    ========================================== */
-.art-card, .collage-item, .masonry-item {
+.art-card, .masonry-item {
     background: #fff;
     padding: 10px;
     border: 1px solid #eee;
@@ -165,12 +223,19 @@ body {
     margin-bottom: 15px;
 }
 
-.art-card img, .collage-item img, .masonry-item img { width: 100%; height: auto; border-radius: 4px; display: block; }
-.art-card:hover, .masonry-item:hover { transform: scale(1.03); z-index: 5; }
+.art-card img, .masonry-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
 
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+.art-card:hover, .masonry-item:hover {
+    transform: scale(1.03);
+    z-index: 5;
+}
 
-.collage-grid, .masonry-gallery {
+.masonry-gallery {
     column-count: 3;
     column-gap: 15px;
     width: 100%;
@@ -180,93 +245,83 @@ body {
 .microscopy-card { background: #000 !important; border: 1px solid #333; }
 .microscopy-card .caption { color: #eeeeee !important; }
 
-.caption { margin-top: 10px; font-size: 0.9rem; color: #555; text-align: center; min-height: 1.2em; font-style: italic; }
-
+/* Microscopy Colors */
 .text-green { color: #00ff00; font-weight: bold; }
 .text-red { color: #ff3333; font-weight: bold; }
 .text-magenta { color: #ff00ff; font-weight: bold; }
 .text-cyan { color: #00ffff; font-weight: bold; }
 
-/* ==========================================
-   7. FOOTER & EXTRAS
-   ========================================== */
-.cv-footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #999; }
-.section-divider { border: 0; border-top: 1px solid #ddd; margin: 40px auto; width: 80%; }
-.yoda-meme { max-width: 500px; width: 100%; height: auto; display: block; margin: 0 auto 30px auto; }
+.caption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    font-style: italic;
+}
 
 /* ==========================================
-   8. RESPONSIVENESS
+   7. HALL OF SHAME SPECIFICS
+   ========================================== */
+.shame-hero { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+.meme-caption { font-size: 0.8rem; color: #888; margin-top: 10px; font-style: italic; }
+.shame-intro { text-align: center; margin-bottom: 30px; }
+.lesson-learnt-box { text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #eee; }
+.yoda-meme { max-width: 500px; width: 100%; height: auto; display: block; margin: 0 auto 10px auto; }
+
+/* ==========================================
+   8. GIT PROJECTS STYLING
+   ========================================== */
+.project-item { display: flex; flex-direction: column; gap: 20px; margin-bottom: 60px; }
+.project-header { display: flex; align-items: center; gap: 25px; }
+.project-headline { font-size: 2rem; color: #2c3e50; margin: 0; }
+.repo-link a { color: #d9534f; text-decoration: none; font-weight: bold; }
+
+/* ==========================================
+   9. SOCIAL LINKS RIBBON
+   ========================================== */
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+    align-items: center;
+}
+
+.social-links a {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+/* ==========================================
+   10. RESPONSIVENESS & FOOTER
    ========================================== */
 @media (max-width: 900px) {
-    .collage-grid, .masonry-gallery { column-count: 2; }
+    .masonry-gallery { column-count: 2; }
 }
 
 @media (max-width: 768px) {
     .container { padding: 30px; margin: 20px; }
     .about-section { flex-direction: column; text-align: center; }
-    .cv-header-flex { flex-direction: column; align-items: center; text-align: center; }
-    .contact-info { text-align: center; margin-top: 10px; }
-    .cv-date { float: none; display: block; }
+    .cv-header-flex { flex-direction: column; align-items: center; }
 }
 
 @media (max-width: 600px) {
-    .collage-grid, .masonry-gallery { column-count: 1; }
-    .gallery-title-script { font-size: 3rem; }
+    .masonry-gallery { column-count: 1; }
 }
 
-/* --- GIT PROJECTS STYLING --- */
-.project-item { display: flex; flex-direction: column; gap: 20px; margin-bottom: 60px; }
-.project-header { display: flex; align-items: center; gap: 25px; }
-.project-logo svg { border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
-.project-logo svg:hover { transform: scale(1.05); }
-.project-headline { font-size: 2rem; color: #2c3e50; margin: 0; }
-.project-description p { font-size: 1rem; color: #444; line-height: 1.8; margin-bottom: 15px; }
-.repo-link { margin-top: 25px; font-weight: bold; }
-.repo-link a { color: #d9534f; text-decoration: none; border-bottom: 1px solid transparent; transition: border 0.3s; }
-.repo-link a:hover { border-bottom: 1px solid #d9534f; }
-
-/* --- SOCIAL LINKS RIBBON --- */
-.social-links { display: flex; gap: 20px; margin-top: 25px; align-items: center; }
-.social-links a { transition: transform 0.3s ease, opacity 0.3s ease; display: inline-block; }
-.social-links img { width: 30px; height: 30px; object-fit: contain; filter: grayscale(20%); }
-.social-links a:hover { transform: translateY(-3px); opacity: 0.8; }
-.social-links a[title="ORCID"]:hover img { filter: drop-shadow(0 0 5px #a6ce39); }
-
-/* --- SHAME PAGE SPECIFICS --- */
-.shame-hero { text-align: center; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-.meme-caption { font-size: 0.8rem; color: #888; margin-top: 10px; font-style: italic; }
-.shame-intro { text-align: center; margin-bottom: 30px; }
-.lesson-learnt-box { text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #eee; }
-
-/* --- IN-LINE SVG LOGO STYLING --- */
-.logo-svg {
-    height: 48px;       /* Set the explicit height of the logo */
-    width: auto;        /* Maintain the square aspect ratio from the viewBox */
-    display: block;
-    margin-right: 15px; /* Spacing between logo and links */
-    transition: transform 0.3s ease;
-}
-
-/* --- THE BIOLOGIST HOVER MAGIC --- */
-/* When you hover over the logo link... */
-.nav-logo a:hover .logo-svg {
-    transform: scale(1.1) rotate(5deg);
-}
-
-/* ...The markings turn into your brand red (#d9534f) */
-.nav-logo a:hover .logo-svg .marking-path {
-    fill: #d9534f;
-    transition: fill 0.3s ease;
-}
-
-/* ...The entire face path becomes slightly warmer/more defined */
-.nav-logo a:hover .logo-svg .face-path {
-    fill: #e8a87c;
-    transition: fill 0.3s ease;
-}
-
-/* --- Ensure vertical centering --- */
-.nav-logo {
-    display: flex;
-    align-items: center;
+.cv-footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.8rem;
+    color: #999;
 }
